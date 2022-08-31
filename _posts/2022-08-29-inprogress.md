@@ -25,7 +25,7 @@ We use a nice and descriptive name for the machine.
 
 ### Select the image
 
-Let's use Ubuntu 22.04 LTS
+Let's use Ubuntu 22.04 LTS.
 
 ![image2](https://github.com/peterda84/peterda84.github.io/blob/dev/assets/img/boinc/step2.png)
 
@@ -49,13 +49,13 @@ It is ok to leave the standard setting of 8GB SSD volume.
 
 ### Our instance is being launched
 
-Just a few moments more.
+Just a few moments more...
 
 ![image6](https://github.com/peterda84/peterda84.github.io/blob/dev/assets/img/boinc/step6.png)
 
 ### Instance up and running
 
-We are ready to install the BOINC client.
+Now we are ready to install the BOINC client.
 
 ![image7](https://github.com/peterda84/peterda84.github.io/blob/dev/assets/img/boinc/step7.png)
 
