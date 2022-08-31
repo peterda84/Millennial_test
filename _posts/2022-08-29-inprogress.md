@@ -37,19 +37,25 @@ For instance type we select t2.micro since it is elegible as part of the free ti
 
 ### Select security groups
 
-
+In order to SSH the instance and be able to connect to it via the BOINC manager (see later), we create and attach a security group, allowing all incoming traffic from our IP address.
 
 ![image4](https://github.com/peterda84/peterda84.github.io/blob/dev/assets/img/boinc/step4.png)
 
 ### Configure storage
 
+It is ok to leave the standard setting of 8GB SSD volume.
+
 ![image5](https://github.com/peterda84/peterda84.github.io/blob/dev/assets/img/boinc/step5.png)
 
 ### Our instance is being launched
 
+Just a few moments more.
+
 ![image6](https://github.com/peterda84/peterda84.github.io/blob/dev/assets/img/boinc/step6.png)
 
-### Instance is up and running
+### Instance up and running
+
+We are ready to install the BOINC client.
 
 ![image7](https://github.com/peterda84/peterda84.github.io/blob/dev/assets/img/boinc/step7.png)
 
