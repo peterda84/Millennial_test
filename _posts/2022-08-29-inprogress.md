@@ -19,6 +19,8 @@ In this occasion we will use the AWS Management Console to spin up our virtual m
 
 ### Name the instance
 
+We use a nice and descriptive name for the machine.
+
 ![image1](https://github.com/peterda84/peterda84.github.io/blob/dev/assets/img/boinc/step1.png)
 
 ### Select the image
