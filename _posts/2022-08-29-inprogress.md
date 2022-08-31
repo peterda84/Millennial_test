@@ -25,13 +25,19 @@ We use a nice and descriptive name for the machine.
 
 ### Select the image
 
+Let's use Ubuntu 22.04 LTS
+
 ![image2](https://github.com/peterda84/peterda84.github.io/blob/dev/assets/img/boinc/step2.png)
 
 ### Select the instance type and the key par
 
+For instance type we select t2.micro since it is elegible as part of the free tier. A key pair is recommended to use to connect to the instance securely.
+
 ![image3](https://github.com/peterda84/peterda84.github.io/blob/dev/assets/img/boinc/step3.png)
 
 ### Select security groups
+
+
 
 ![image4](https://github.com/peterda84/peterda84.github.io/blob/dev/assets/img/boinc/step4.png)
 
