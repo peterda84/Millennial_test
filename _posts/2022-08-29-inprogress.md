@@ -13,6 +13,37 @@ There are about 30 science projects that use BOINC in many areas. They investiga
 
 In this project we will create an EC2 instance on Amazon AWS, install the BOINC client on it and attach to a science project.
 
-## Spin up an EC2 instance on AWS
+## Launch an EC2 instance on AWS
+
+In this occasion we will use the AWS Management Console to spin up our virtual machine.
+
+### Name the instance
+
+![image1](https://github.com/peterda84/peterda84.github.io/blob/dev/assets/img/boinc/launchec2_step1.png)
+
+### Select the image
+
+![image2](https://github.com/peterda84/peterda84.github.io/blob/dev/assets/img/boinc/launchec2_step2.png)
+
+### Select the instance type and the key par
+
+![image3](https://github.com/peterda84/peterda84.github.io/blob/dev/assets/img/boinc/launchec2_step3.png)
+
+### Select security groups
+
+![image4](https://github.com/peterda84/peterda84.github.io/blob/dev/assets/img/boinc/launchec2_step4.png)
+
+### Configure storage
+
+![image5](https://github.com/peterda84/peterda84.github.io/blob/dev/assets/img/boinc/launchec2_step5.png)
+
+### Our instance is being launched
+
+![image6](https://github.com/peterda84/peterda84.github.io/blob/dev/assets/img/boinc/launchec2_step6.png)
+
+### Instance is up and running
+
+![image7](https://github.com/peterda84/peterda84.github.io/blob/dev/assets/img/boinc/launchec2_step7.png)
+
 
 ## Installing and configuring BOINC
