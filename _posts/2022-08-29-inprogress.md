@@ -21,7 +21,7 @@ In this occasion we will use the AWS Management Console to spin up our virtual m
 
 We use a nice and descriptive name for the machine.
 
-![image1](assets/img/boinc/step1.png)
+![image1](/assets/img/boinc/step1.png)
 
 ### Select the image
 
