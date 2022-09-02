@@ -178,3 +178,5 @@ ubuntu@ip-172-31-25-132:~$
 ubuntu@ip-172-31-25-132:~$ htop
 ```
 
+![htop](/assets/img/boinc/htop2.png)
+
