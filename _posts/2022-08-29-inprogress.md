@@ -62,7 +62,7 @@ Now we are ready to install the BOINC client.
 
 ## Installing and configuring BOINC
 
-```console
+```bash
 ubuntu@ip-172-31-29-129:~$ sudo systemctl status boinc-client
 ● boinc-client.service - Berkeley Open Infrastructure Network Computing Client
     Loaded: loaded (/lib/systemd/system/boinc-client.service; enabled; vendor preset: enabled)
