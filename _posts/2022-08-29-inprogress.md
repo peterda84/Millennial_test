@@ -62,6 +62,15 @@ Now we are ready to install the BOINC client.
 
 ## Installing and configuring BOINC
 
+### SSH to our just baked instance
+To connect using our instance's public DNS name, we enter the following command:
+
+```console
+ssh -i /path/key-pair-name.pem instance-user-name@instance-public-dns-name
+```
+
+The user name for Ubuntu instances is ```ubuntu```.
+
 ```pwsh
 PS C:\Users\54911> ssh -i "linux_nvirginia.pem" ubuntu@ec2-1-2-3-4.compute-1.amazonaws.com
 The authenticity of host 'ec2-1-2-3-4.compute-1.amazonaws.com (1.2.3.4)' can't be established.
@@ -71,6 +80,8 @@ Warning: Permanently added 'ec2-1-2-3-4.compute-1.amazonaws.com,1.2.3.4' (ECDSA)
 ...
 ```
 
+### Once connected, we update the package information and install available upgrades of all packages
+
 ```console
 ubuntu@ip-172-31-25-132:~$ sudo apt update && sudo apt upgrade -y
 Hit:1 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy InRelease
@@ -79,6 +90,8 @@ Get:3 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy-backports InRelease [
 Get:4 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy/universe amd64 Packages [14.1 MB]
 ...
 ```
+
+### Then we install the boinc client as easy as the following
 
 ```console
 ubuntu@ip-172-31-25-132:~$ sudo apt install boinc-client -y
