@@ -178,6 +178,8 @@ GNU nano 6.2                                /etc/boinc-client/remote_hosts.cfg *
 4.3.2.1   #This is the public IP of the computer you want to connect the client from
 ```
 
+It is important to protect our BOINC client from unauthorized control. GUI RPCs (Graphical User Interface Remote Procedure Call) are authenticated with a GUI RPC password. This is stored with the client in the file ```gui_rpc_auth.cfg```. 
+
 ```console
 ubuntu@ip-172-31-25-132:~$ sudo nano /etc/boinc-client/gui_rpc_auth.cfg
 ```
@@ -187,6 +189,7 @@ GNU nano 6.2                                /etc/boinc-client/gui_rpc_auth.cfg *
 kGE9dfwff322jna23   #This is your password
 ```
 
+In order to the config changes take effect, we have to restart the service:
 
 ```console
 ubuntu@ip-172-31-25-132:~$ sudo systemctl restart boinc-client
