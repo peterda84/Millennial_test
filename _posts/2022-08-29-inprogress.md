@@ -107,6 +107,10 @@ The following NEW packages will be installed:
 ...
 ```
 
+### Checking the status of the boinc-client service
+
+We realize that is inactive:
+
 ```console
 ubuntu@ip-172-31-25-132:~$ sudo systemctl status boinc-client
 ○ boinc-client.service - Berkeley Open Infrastructure Network Computing Client
@@ -115,6 +119,8 @@ ubuntu@ip-172-31-25-132:~$ sudo systemctl status boinc-client
        Docs: man:boinc(1)
 ```
 
+The advantage of running BOINC as a daemon on Linux is that it automatically starts when Linux boots and it runs even when no users are logged on. So that we ```start``` it (to load) then ```enable``` it (to load after every reboot).
+
 ```console
 ubuntu@ip-172-31-25-132:~$ sudo systemctl start boinc-client
 ubuntu@ip-172-31-25-132:~$ sudo systemctl enable boinc-client
@@ -122,6 +128,8 @@ Synchronizing state of boinc-client.service with SysV service script with /lib/s
 Executing: /lib/systemd/systemd-sysv-install enable boinc-client
 Created symlink /etc/systemd/system/multi-user.target.wants/boinc-client.service → /lib/systemd/system/boinc-client.service.
 ```
+
+Now the daemon is active and enabled:
 
 ```console
 ubuntu@ip-172-31-25-132:~$ sudo systemctl status boinc-client
@@ -149,6 +157,10 @@ Sep 02 17:45:28 ip-172-31-25-132 boinc[1223]: 02-Sep-2022 17:45:28 Initializatio
 lines 1-21/21 (END)
 ```
 
+### Configuration
+
+In order to be able to connect the client remotely, we have to add our public IP in the ```/etc/boinc-client/remote_hosts.cfg``` configuration file. To edit the file with ```nano```:
+
 ```console
 ubuntu@ip-172-31-25-132:~$ sudo nano /etc/boinc-client/remote_hosts.cfg
 ```
@@ -163,7 +175,7 @@ GNU nano 6.2                                /etc/boinc-client/remote_hosts.cfg *
 #
 #host.example.com
 #192.168.0.180
-4.3.2.1   #This is your IP 
+4.3.2.1   #This is the public IP of the computer you want to connect the client from
 ```
 
 ```console
@@ -181,6 +193,7 @@ ubuntu@ip-172-31-25-132:~$ sudo systemctl restart boinc-client
 ubuntu@ip-172-31-25-132:~$
 ```
 
+### Let BOINC start to exploit our computer's resources
 
 ```console
 ubuntu@ip-172-31-25-132:~$ sudo boinccmd --project_attach http://einstein.phys.uwm.edu/ YOUR_ACCOUNT_KEY
