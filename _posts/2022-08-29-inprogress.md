@@ -200,14 +200,18 @@ ubuntu@ip-172-31-25-132:~$
 
 You will find the list of known projects at [the BOINC website](https://boinc.berkeley.edu/projects.php). For this presentation I have chosen [Einstein@Home](https://einsteinathome.org/).
 
-The first step is create an account on the site, then go to the [Credentials page](https://einsteinathome.org/account/info/edit) to see your account key.
+The first step is create an account on the site, then go to the [Credentials page](https://einsteinathome.org/account/info/edit) to see your "Account key".
 
 ![einstein](/assets/img/boinc/einstein.png)
+
+To attach the Einstein@Home project to our machine we simply run the following command, changing "YOUR_ACCOUNT_KEY" with our own key.
 
 ```console
 ubuntu@ip-172-31-25-132:~$ sudo boinccmd --project_attach http://einstein.phys.uwm.edu/ YOUR_ACCOUNT_KEY
 ubuntu@ip-172-31-25-132:~$
 ```
+
+If we look at the processor usage of active processes with a system monitor - my favorite is ```htop``` - we will see that BOINC is running and actually uses a great part of the available resources.
 
 ```console
 ubuntu@ip-172-31-25-132:~$ htop
@@ -215,3 +219,4 @@ ubuntu@ip-172-31-25-132:~$ htop
 
 ![htop](/assets/img/boinc/htop2.png)
 
+Computing preferences of client can be modified one by one with the ```boinccmd``` interface, but also centrally on the project homepage. In the case of Einstein@Home you can do it on [this link](https://einsteinathome.org/account/prefs).
