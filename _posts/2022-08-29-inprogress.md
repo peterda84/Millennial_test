@@ -219,4 +219,4 @@ ubuntu@ip-172-31-25-132:~$ htop
 
 ![htop](/assets/img/boinc/htop2.png)
 
-Computing preferences of client can be modified one by one with the ```boinccmd``` interface, but also centrally on the project homepage. In the case of Einstein@Home you can do it on [this link](https://einsteinathome.org/account/prefs).
+Computing preferences of clients can be modified one by one with the ```boinccmd``` interface, but also centrally on the project homepage. In the case of Einstein@Home you can do it on [this link](https://einsteinathome.org/account/prefs).
