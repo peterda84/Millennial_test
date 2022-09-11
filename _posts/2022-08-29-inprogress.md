@@ -159,7 +159,7 @@ lines 1-21/21 (END)
 
 ### Configuration
 
-In order to be able to connect the client remotely, we have to add our public IP in the ```/etc/boinc-client/remote_hosts.cfg``` configuration file. To edit the file with ```nano```:
+Before attach the client to a project, we do some basic changes in configuration. In order to be able to connect the client remotely, we have to add our public IP in the ```remote_hosts.cfg``` configuration file. To edit the file with ```nano```:
 
 ```console
 ubuntu@ip-172-31-25-132:~$ sudo nano /etc/boinc-client/remote_hosts.cfg
