@@ -198,6 +198,10 @@ ubuntu@ip-172-31-25-132:~$
 
 ### Let BOINC start to exploit our computer's resources
 
+You will find the list of known projects at [the BOINC website](https://boinc.berkeley.edu/projects.php). For this presentation I have chosen [Einstein@Home](https://einsteinathome.org/).
+
+The first step is create an account on the site, then go to the [Credentials page](https://einsteinathome.org/account/info/edit) to see your account key.
+
 ```console
 ubuntu@ip-172-31-25-132:~$ sudo boinccmd --project_attach http://einstein.phys.uwm.edu/ YOUR_ACCOUNT_KEY
 ubuntu@ip-172-31-25-132:~$
