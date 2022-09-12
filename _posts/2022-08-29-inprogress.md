@@ -248,7 +248,7 @@ For a detailed explanation how BOINC Manager works, please refer to the [BOINC M
 ## Summary
 
 In this project we have seen:
-- [] How to create an EC2 instance on Amazon AWS using the Management Console
-- [] How to install the BOINC client on this Linux instance
-- [] How to configure the client and attach to a science project
-- [] How to connect to the client via the BOINC Manager
+- [ ] How to create an EC2 instance on Amazon AWS using the Management Console
+- [ ] How to install the BOINC client on this Linux instance
+- [ ] How to configure the client and attach to a science project
+- [ ] How to connect to the client via the BOINC Manager
