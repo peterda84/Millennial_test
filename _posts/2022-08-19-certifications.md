@@ -14,3 +14,11 @@ You can find here some of the courses I have attended. For the full list please 
 Issued Jul 2022 by Coursera - Credential ID GJCS5YLVCRGM
 
 
+#### [Amazon EC2 Deep Dive](https://www.linkedin.com/learning/certificates/1c25c206e59889cc237b1f65a9965940f507bcf7eec85a152ee400048b9cb708)
+
+Issued Jun 2022 by LinkedIn
+
+
+#### [Learning Bash Scripting](https://www.linkedin.com/learning/certificates/57ff00775769f16989ab69950df7cddb094020a2b893879ae2bfd1f4345d0f11)
+
+Issued Nov 2021 by LinkedIn
