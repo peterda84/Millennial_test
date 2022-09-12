@@ -31,7 +31,7 @@ Let's use Ubuntu 22.04 LTS.
 
 ### Select the instance type and the key par
 
-For instance type we select t2.micro since it is elegible as part of the free tier. A key pair is recommended to use to connect to the instance securely.
+For instance type we select t2.micro since it is elegible as part of the free tier. A key pair is recommended to use to connect to the instance securely. We had formerly created a key called `linux_nvirginia`.
 
 ![image3](/assets/img/boinc/step3.png)
 
@@ -62,14 +62,14 @@ Now we are ready to install the BOINC client.
 
 ## Installing and configuring BOINC
 
-### SSH to our just baked instance
+### SSH to our just-baked instance
 To connect using our instance's public DNS name, we enter the following command:
 
 ```console
 ssh -i /path/key-pair-name.pem instance-user-name@instance-public-dns-name
 ```
 
-The user name for Ubuntu instances is ```ubuntu```.
+The user name for Ubuntu instances is ```ubuntu```. Please refer to the [AWS Documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connection-prereqs.html) for usernames of other Linux distributions.
 
 ```pwsh
 PS C:\Users\54911> ssh -i "linux_nvirginia.pem" ubuntu@ec2-1-2-3-4.compute-1.amazonaws.com
@@ -91,7 +91,7 @@ Get:4 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy/universe amd64 Packag
 ...
 ```
 
-### Then we install the boinc client as easy as the following
+### Then we install the BOINC client as easy as the following
 
 ```console
 ubuntu@ip-172-31-25-132:~$ sudo apt install boinc-client -y
@@ -119,7 +119,7 @@ ubuntu@ip-172-31-25-132:~$ sudo systemctl status boinc-client
        Docs: man:boinc(1)
 ```
 
-The advantage of running BOINC as a daemon on Linux is that it automatically starts when Linux boots and it runs even when no users are logged on. So that we ```start``` it (to load) then ```enable``` it (to load after every reboot).
+The advantage of running BOINC as a daemon on Linux is that it automatically starts when the OS boots and it runs even when no users are logged on. So that we ```start``` it (to load) then ```enable``` it (to load after every reboot).
 
 ```console
 ubuntu@ip-172-31-25-132:~$ sudo systemctl start boinc-client
@@ -198,7 +198,7 @@ ubuntu@ip-172-31-25-132:~$
 
 ### Let BOINC start to exploit our computer's resources
 
-You will find the list of known projects at [the BOINC website](https://boinc.berkeley.edu/projects.php). For this presentation I have chosen [Einstein@Home](https://einsteinathome.org/).
+You will find the list of known projects at [the BOINC website](https://boinc.berkeley.edu/projects.php). For this presentation we have chosen [Einstein@Home](https://einsteinathome.org/).
 
 The first step is create an account on the site, then go to the [Credentials page](https://einsteinathome.org/account/info/edit) to see your "Account key".
 
@@ -219,4 +219,4 @@ ubuntu@ip-172-31-25-132:~$ htop
 
 ![htop](/assets/img/boinc/htop2.png)
 
-Computing preferences of clients can be modified one by one with the ```boinccmd``` interface, but also centrally on the project homepage. In the case of Einstein@Home you can do it on [this link](https://einsteinathome.org/account/prefs).
+Computing preferences (CPU, memory, disk, network usage, etc.) of clients can be modified one by one with the ```boinccmd``` interface, but also centrally on the project homepage. In case of Einstein@Home you can do it on [this link](https://einsteinathome.org/account/prefs).
