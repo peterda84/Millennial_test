@@ -220,3 +220,9 @@ ubuntu@ip-172-31-25-132:~$ htop
 ![htop](/assets/img/boinc/htop2.png)
 
 Computing preferences (CPU, memory, disk, network usage, etc.) of clients can be modified one by one with the ```boinccmd``` interface, but also centrally on the project homepage. In case of Einstein@Home you can do it on [this link](https://einsteinathome.org/account/prefs).
+
+## Connect the client via BOINC Manager
+
+The BOINC Manager is a 'control panel' for BOINC. It provides a graphical interface for monitoring and controlling the BOINC Client (which is sometimes also called the "core client"). The Manager is a separate program and does not have to run all the time. The BOINC Manager can also be used for remote control of a BOINC Client running on another computer (if the client on that computer allows that). (source: [BOINC wiki](https://boinc.berkeley.edu/wiki/User_manual))
+
+We don't go through the installation step by step, but here is how to connect our client via the manager
