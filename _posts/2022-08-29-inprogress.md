@@ -225,4 +225,9 @@ Computing preferences (CPU, memory, disk, network usage, etc.) of clients can be
 
 The BOINC Manager is a 'control panel' for BOINC. It provides a graphical interface for monitoring and controlling the BOINC Client (which is sometimes also called the "core client"). The Manager is a separate program and does not have to run all the time. The BOINC Manager can also be used for remote control of a BOINC Client running on another computer (if the client on that computer allows that). (source: [BOINC wiki](https://boinc.berkeley.edu/wiki/User_manual))
 
-We don't go through the installation step by step, but here is how to connect our client via the manager
+We don't go through the installation step by step, but here is how to connect our client via the manager:
+
+![boinc_manager](/assets/img/boinc/bmanager1.jpg)
+![boinc_manager](/assets/img/boinc/bmanager2.jpg)
+![boinc_manager](/assets/img/boinc/bmanager3.jpg)
+![boinc_manager](/assets/img/boinc/bmanager4.jpg)
