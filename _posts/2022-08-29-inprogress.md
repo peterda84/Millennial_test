@@ -244,3 +244,11 @@ And on the Tasks tab, we see the tasks assigned to our client.
 ![boinc_manager](/assets/img/boinc/bmanager4.jpg)
 
 For a detailed explanation how BOINC Manager works, please refer to the [BOINC Manual](https://boinc.berkeley.edu/wiki/User_manual).
+
+## Summary
+
+In this project we have seen:
+- [] How to create an EC2 instance on Amazon AWS using the Management Console
+- [] How to install the BOINC client on this Linux instance
+- [] How to configure the client and attach to a science project
+- [] How to connect to the client via the BOINC Manager
