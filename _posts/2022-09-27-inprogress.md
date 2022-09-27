@@ -15,11 +15,28 @@ In this project we will create a new SearXNG instance on AWS using Docker.
 
 ## Launch an EC2 instance on AWS
 
-In this occasion we will use the AWS CLI to spin up our virtual machine.
+In this occasion we will use the AWS CLI to spin up our virtual machine. To install or update the AWS CLI on Windows we simply run the following command:
 
 ```
-C:\Users\David> aws ec2 run-instances --image-id ami-08c40ec9ead489470 --count 1 --instance-type t2.micro --key-name linux_nvirginia --security-group-ids sg-0c70db6fdbb69074c --tag-specifications ResourceType=instance,Tags=[{Key=Name,Value=searxng_server}]
+C:\> msiexec.exe /i https://awscli.amazonaws.com/AWSCLIV2.msi
 ```
+
+You can find how to quickly configure the basic settings of CLI on the [AWS docs site](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html).
+
+In order to create the instance, we will run the following:
+
+```
+C:\> aws ec2 run-instances --image-id ami-08c40ec9ead489470 --count 1 --instance-type t2.micro --key-name linux_nvirginia --security-group-ids sg-0c70db6fdbb69074c --tag-specifications ResourceType=instance,Tags=[{Key=Name,Value=searxng_server}]
+```
+
+```run-instances``` launches the specified number of instances using an AMI for which you have permissions. We have specified the following options:
+
+- --image-id: The ID of the AMI. An AMI ID is required to launch an instance and must be specified here or in a launch template. Here we are using Ubuntu Server 22.04
+- --count: Number of instances to launch.
+- --instance-type: The instance type. A t2.micro will be enough
+- --key-name: The name of the key pair. We use a key generated beforehand.
+- --security-group-ids: The IDs of the security groups.
+- --tag-specifications: The tags to apply to the resources that are created during instance launch. We give a name to our instance.
 
 ```JSON
 {
