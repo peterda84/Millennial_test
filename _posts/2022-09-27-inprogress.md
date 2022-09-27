@@ -12,3 +12,39 @@ Searx is a free and open-source metasearch engine (ie. an online information ret
 SearXNG is a fork of Searx. (source: [Wikipedia](https://en.wikipedia.org/wiki/Searx).)
 
 In this project we will create a new SearXNG instance on AWS using Docker.
+
+## Launch an EC2 instance on AWS
+
+In this occasion we will use the AWS CLI to spin up our virtual machine.
+
+```console
+aws ec2 run-instances --image-id ami-08c40ec9ead489470 --count 1 --instance-type t2.micro --key-name linux_nvirginia --security-group-ids sg-0c70db6fdbb69074c --tag-specifications ResourceType=instance,Tags=[{Key=Name,Value=searxng_server}]
+
+{
+    "Groups": [],
+    "Instances": [
+        {
+            "AmiLaunchIndex": 0,
+            "ImageId": "ami-08c40ec9ead489470",
+            "InstanceId": "i-0f33d62194319c5b2",
+            "InstanceType": "t2.micro",
+            "KeyName": "linux_nvirginia",
+            "LaunchTime": "2022-09-27T21:28:29+00:00",
+            "Monitoring": {
+                "State": "disabled"
+            },
+            "Placement": {
+                "AvailabilityZone": "us-east-1a",
+                "GroupName": "",
+                "Tenancy": "default"
+            },
+            "PrivateDnsName": "ip-172-31-31-3.ec2.internal",
+            "PrivateIpAddress": "172.31.31.3",
+            "ProductCodes": [],
+            "PublicDnsName": "",
+            "State": {
+                "Code": 0,
+                "Name": "pending"
+            },
+...
+```
