@@ -19,7 +19,9 @@ In this occasion we will use the AWS CLI to spin up our virtual machine.
 
 ```pwsh
 C:\Users\54911>aws ec2 run-instances --image-id ami-08c40ec9ead489470 --count 1 --instance-type t2.micro --key-name linux_nvirginia --security-group-ids sg-0c70db6fdbb69074c --tag-specifications ResourceType=instance,Tags=[{Key=Name,Value=searxng_server}]
+```
 
+```JSON
 {
     "Groups": [],
     "Instances": [
