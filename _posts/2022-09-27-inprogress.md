@@ -21,9 +21,9 @@ In this occasion we will use the AWS CLI to spin up our virtual machine. To inst
 C:\> msiexec.exe /i https://awscli.amazonaws.com/AWSCLIV2.msi
 ```
 
-You can find how to quickly configure the basic settings of CLI on the [AWS docs site](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html).
+You can find how to quickly configure the basic settings of the CLI on the [AWS docs site](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html).
 
-In order to create the instance, we will run the following:
+In order to create the instance, we run the following command:
 
 ```
 C:\> aws ec2 run-instances --image-id ami-08c40ec9ead489470 --count 1 --instance-type t2.micro --key-name linux_nvirginia --security-group-ids sg-0c70db6fdbb69074c --tag-specifications ResourceType=instance,Tags=[{Key=Name,Value=searxng_server}]
@@ -37,6 +37,8 @@ C:\> aws ec2 run-instances --image-id ami-08c40ec9ead489470 --count 1 --instance
 - --key-name: The name of the key pair. We use a key generated beforehand.
 - --security-group-ids: The IDs of the security groups.
 - --tag-specifications: The tags to apply to the resources that are created during instance launch. We give a name to our instance.
+
+Then we will see the below output, by default in json format:
 
 ```JSON
 {
