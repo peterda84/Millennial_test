@@ -81,11 +81,11 @@ Get:3 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy-backports InRelease [
 Get:4 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy/universe amd64 Packages [14.1 MB]
 ```
 
-### Let's install docker and docker-compose
+### How to install `docker` and `docker-compose`
 
-You can find details [here](https://docs.docker.com/engine/install/) and [here](https://docs.docker.com/compose/install/).
+You can find details [on this](https://docs.docker.com/engine/install/) and [this](https://docs.docker.com/compose/install/) link.
 
-We install docker using their repository. Before do that for the first time on a new host machine, we need to set up the Docker repository. Afterward, we can install and update Docker from the repository.
+We install Docker and Docker Compose using their repository. Before to do that for the first time on a new host machine, we need to set up the Docker repository. Afterward, we can install and update Docker from the repository.
 
 Update the apt package index and install packages to allow apt to use a repository over HTTPS:
 
@@ -110,7 +110,7 @@ ubuntu@ip-172-31-91-179:~$ echo \
 >   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 ```
 
-Update the apt package index, and install the latest version of Docker Engine, containerd, and Docker Compose
+Update the apt package index
 
 ```console
 ubuntu@ip-172-31-91-179:~$ sudo apt update
@@ -123,6 +123,8 @@ Get:6 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages [7065
 Fetched 380 kB in 0s (890 kB/s)
 Reading package lists... Done
 ```
+
+Install the latest version of Docker Engine, containerd, and Docker Compose
 
 ```console
 ubuntu@ip-172-31-91-179:~$ sudo apt install docker-ce docker-ce-cli containerd.io docker-compose
