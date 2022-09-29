@@ -68,3 +68,80 @@ Then we will see the below output, by default in json format:
                 "Name": "pending"
             },
 ```
+
+## Install Docker Engine and Docker Compose
+
+### We ssh to the instance, update the package information and install available upgrades of all packages
+
+```console
+ubuntu@ip-172-31-91-179:~$ sudo apt update && sudo apt upgrade -y
+Hit:1 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy InRelease
+Get:2 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy-updates InRelease [114 kB]
+Get:3 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy-backports InRelease [99.8 kB]
+Get:4 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy/universe amd64 Packages [14.1 MB]
+```
+
+### Let's install docker and docker-compose
+
+You can find details [here](https://docs.docker.com/engine/install/) and [here](https://docs.docker.com/compose/install/).
+
+We install docker using their repository. Before do that for the first time on a new host machine, we need to set up the Docker repository. Afterward, we can install and update Docker from the repository.
+
+Update the apt package index and install packages to allow apt to use a repository over HTTPS:
+
+```console
+ubuntu@ip-172-31-91-179:~$ sudo apt install ca-certificates curl gnupg lsb-release
+Reading package lists... Done
+Building dependency tree... Done
+```
+
+Add Docker’s official GPG key:
+
+```console
+ubuntu@ip-172-31-91-179:~$ sudo mkdir -p /etc/apt/keyrings
+ubuntu@ip-172-31-91-179:~$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+```
+
+Use the following command to set up the repository:
+
+```console
+ubuntu@ip-172-31-91-179:~$ echo \
+>   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+>   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+```
+
+Update the apt package index, and install the latest version of Docker Engine, containerd, and Docker Compose
+
+```console
+ubuntu@ip-172-31-91-179:~$ sudo apt update
+Hit:1 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy InRelease
+Get:2 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy-updates InRelease [114 kB]
+Get:3 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy-backports InRelease [99.8 kB]
+Get:4 http://security.ubuntu.com/ubuntu jammy-security InRelease [110 kB]
+Get:5 https://download.docker.com/linux/ubuntu jammy InRelease [48.9 kB]
+Get:6 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages [7065 B]
+Fetched 380 kB in 0s (890 kB/s)
+Reading package lists... Done
+```
+
+```console
+ubuntu@ip-172-31-91-179:~$ sudo apt install docker-ce docker-ce-cli containerd.io docker-compose
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+```
+
+Verify that Docker Engine is installed correctly by running the `hello-world` image.
+
+```console
+ubuntu@ip-172-31-91-179:~$ sudo service docker start
+ubuntu@ip-172-31-91-179:~$ sudo docker run hello-world
+Unable to find image 'hello-world:latest' locally
+latest: Pulling from library/hello-world
+2db29710123e: Pull complete
+Digest: sha256:62af9efd515a25f84961b70f973a798d2eca956b1b2b026d0a4a63a3b0b6a3f2
+Status: Downloaded newer image for hello-world:latest
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+```
