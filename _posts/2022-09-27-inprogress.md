@@ -7,9 +7,9 @@ tags: [documentation,sample]
 image: progressbar.png
 ---
 
-Searx is a free and open-source metasearch engine (ie. an online information retrieval tool that uses the data of other web search engines to produce its own results) with the aim of protecting the privacy of its users. To this end, Searx does not share users' IP addresses or search history with the search engines from which it gathers results. Tracking cookies served by the search engines are blocked, preventing user-profiling-based results modification. Users can run private instances of Searx on their own computer, but there are also many public, user-run, Searx instances, some of which are available as Tor hidden services. 
+Searx is a free and open-source metasearch engine (ie. an online information retrieval tool that uses the data of other web search engines to produce its own results) with the aim of protecting the privacy of its users. To this end, Searx does not share users' IP addresses or search history with the search engines from which it gathers results. Tracking cookies served by the search engines are blocked, preventing user-profiling-based results modification. Users can run private instances of Searx on their own computer, but there are also many public, user-run, Searx instances, some of which are available as Tor hidden services. (source: [Wikipedia](https://en.wikipedia.org/wiki/Searx).)
 
-SearXNG is a fork of Searx. (source: [Wikipedia](https://en.wikipedia.org/wiki/Searx).)
+SearXNG is a fork of Searx. Here you can find their [Github repository](https://github.com/searxng/searxng-docker).
 
 In this project we will create a new SearXNG instance on AWS using Docker.
 
@@ -146,4 +146,55 @@ Status: Downloaded newer image for hello-world:latest
 
 Hello from Docker!
 This message shows that your installation appears to be working correctly.
+```
+
+### Get searxng-docker
+
+Clone the `git` repo to our machine to `/usr/local` and change the current directory to `searxng-docker`
+
+```console
+ubuntu@ip-172-31-87-211:~$ cd /usr/local
+ubuntu@ip-172-31-87-211:/usr/local$ sudo git clone https://github.com/searxng/searxng-docker.git
+Cloning into 'searxng-docker'...
+remote: Enumerating objects: 275, done.
+remote: Counting objects: 100% (36/36), done.
+remote: Compressing objects: 100% (13/13), done.
+remote: Total 275 (delta 25), reused 23 (delta 23), pack-reused 239
+Receiving objects: 100% (275/275), 71.87 KiB | 5.53 MiB/s, done.
+Resolving deltas: 100% (153/153), done.
+ubuntu@ip-172-31-87-211:/usr/local$ cd searxng-docker
+ubuntu@ip-172-31-87-211:/usr/local/searxng-docker$
+```
+
+Edit the .env file to set the hostname and an email
+
+```console
+ubuntu@ip-172-31-87-211:/usr/local/searxng-docker$ ls -a
+.   .env  .gitignore  LICENSE    docker-compose.yaml  searxng-docker.service.template
+..  .git  Caddyfile   README.md  searxng
+ubuntu@ip-172-31-87-211:/usr/local/searxng-docker$ sudo nano .env
+```
+
+This is the original .env file:
+
+```
+# By default listen on https://localhost
+# To change this:
+# * uncomment SEARXNG_HOSTNAME, and replace <host> by the SearXNG hostname
+# * uncomment LETSENCRYPT_EMAIL, and replace <email> by your email (require to create a Let's Encrypt certificate)
+
+# SEARXNG_HOSTNAME=<host>
+# LETSENCRYPT_EMAIL=<email>
+```
+
+Uncomment the last 2 lines according to the instructions in the file
+
+```
+# By default listen on https://localhost
+# To change this:
+# * uncomment SEARXNG_HOSTNAME, and replace <host> by the SearXNG hostname
+# * uncomment LETSENCRYPT_EMAIL, and replace <email> by your email (require to create a Let's Encrypt certificate)
+
+SEARXNG_HOSTNAME=1.2.3.4 # your public IP
+LETSENCRYPT_EMAIL=thisis@yourmail.com
 ```
