@@ -166,7 +166,7 @@ ubuntu@ip-172-31-87-211:/usr/local$ cd searxng-docker
 ubuntu@ip-172-31-87-211:/usr/local/searxng-docker$
 ```
 
-Edit the .env file to set the hostname and an email
+Edit the `.env` file to set the hostname and an email
 
 ```console
 ubuntu@ip-172-31-87-211:/usr/local/searxng-docker$ ls -a
@@ -175,7 +175,7 @@ ubuntu@ip-172-31-87-211:/usr/local/searxng-docker$ ls -a
 ubuntu@ip-172-31-87-211:/usr/local/searxng-docker$ sudo nano .env
 ```
 
-This is the original .env file:
+This is the original `.env` file:
 
 ```
 # By default listen on https://localhost
@@ -198,3 +198,33 @@ Uncomment the last 2 lines according to the instructions in the file
 SEARXNG_HOSTNAME=1.2.3.4 # your public IP
 LETSENCRYPT_EMAIL=thisis@yourmail.com
 ```
+
+Generate the secret key
+
+```console
+ubuntu@ip-172-31-87-211:/usr/local/searxng-docker$ sudo sed -i "s|ultrasecretkey|$(openssl rand -hex 32)|g" searxng/settings.yml
+```
+
+Check everything is working
+
+```console
+ubuntu@ip-172-31-87-211:/usr/local/searxng-docker$ sudo docker-compose up
+Creating network "searxng-docker_searxng" with the default driver
+Creating volume "searxng-docker_caddy-data" with default driver
+Creating volume "searxng-docker_caddy-config" with default driver
+Pulling caddy (caddy:2-alpine)...
+2-alpine: Pulling from library/caddy
+213ec9aee27d: Pull complete
+fd0c7d01ba8a: Pull complete
+```
+
+Run SearXNG in the background
+
+```console
+ubuntu@ip-172-31-87-211:/usr/local/searxng-docker$ sudo docker-compose up -d
+Starting caddy   ... done
+Starting searxng ... done
+Starting redis   ... done
+```
+
+
