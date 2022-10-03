@@ -187,7 +187,7 @@ This is the original `.env` file:
 # LETSENCRYPT_EMAIL=<email>
 ```
 
-Uncomment the last 2 lines according to the instructions in the file
+Uncomment the last 2 lines according to the instructions in the file. The hostname has to be a domain name in case of a public instance, not a public IP.
 
 ```
 # By default listen on https://localhost
@@ -195,7 +195,7 @@ Uncomment the last 2 lines according to the instructions in the file
 # * uncomment SEARXNG_HOSTNAME, and replace <host> by the SearXNG hostname
 # * uncomment LETSENCRYPT_EMAIL, and replace <email> by your email (require to create a Let's Encrypt certificate)
 
-SEARXNG_HOSTNAME=1.2.3.4 # your public IP
+SEARXNG_HOSTNAME=thisisyourdomain.com
 LETSENCRYPT_EMAIL=thisis@yourmail.com
 ```
 
@@ -227,7 +227,7 @@ Starting searxng ... done
 Starting redis   ... done
 ```
 
-Let's see the running docker containers with `docker ps`
+We can see the running docker containers with `docker ps`
 
 ```console
 ubuntu@ip-172-31-28-42:/usr/local/searxng-docker$ sudo docker ps
@@ -237,5 +237,6 @@ CONTAINER ID   IMAGE                    COMMAND                  CREATED        
 0576430ce0a6   redis:alpine             "docker-entrypoint.s…"   7 seconds ago   Up 5 seconds   6379/tcp                   redis
 ```
 
+That's all. Enter the hostname you configured in `.env` in your favourite browser. You will see somethig like that:
 
 ![image1](/assets/img/searxng/searxng1.png)
