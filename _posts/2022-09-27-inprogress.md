@@ -227,4 +227,15 @@ Starting searxng ... done
 Starting redis   ... done
 ```
 
+Let's see the running docker containers with `docker ps`
+
+```console
+ubuntu@ip-172-31-28-42:/usr/local/searxng-docker$ sudo docker ps
+CONTAINER ID   IMAGE                    COMMAND                  CREATED         STATUS         PORTS                      NAMES
+605e43865523   searxng/searxng:latest   "/sbin/tini -- /usr/…"   7 seconds ago   Up 5 seconds   127.0.0.1:8080->8080/tcp   searxng
+1957c29e0449   caddy:2-alpine           "caddy run --config …"   7 seconds ago   Up 6 seconds                              caddy
+0576430ce0a6   redis:alpine             "docker-entrypoint.s…"   7 seconds ago   Up 5 seconds   6379/tcp                   redis
+```
+
+
 
