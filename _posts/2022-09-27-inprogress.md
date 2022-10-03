@@ -237,6 +237,10 @@ CONTAINER ID   IMAGE                    COMMAND                  CREATED        
 0576430ce0a6   redis:alpine             "docker-entrypoint.s…"   7 seconds ago   Up 5 seconds   6379/tcp                   redis
 ```
 
+Install the systemd unit to start SearXNG automatically after a reboot
+TO BE FILLED
+
+
 That's all. Enter the hostname you configured in `.env` in your favourite browser. You will see somethig like that:
 
 ![image1](/assets/img/searxng/searxng1.png)
