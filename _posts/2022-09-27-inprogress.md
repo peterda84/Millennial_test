@@ -67,7 +67,6 @@ Then we will see the below output, by default in json format:
                 "Code": 0,
                 "Name": "pending"
             },
-            ...
 ```
 
 ## Install Docker Engine and Docker Compose
@@ -340,6 +339,8 @@ Oct 13 15:13:58 ip-172-31-93-83 docker-compose[3081]: searxng    | spawned 1 off
 ...
 ```
 
-That's all. Enter the hostname you configured in `.env` in your favourite browser. You will see somethig like that:
+That's all. Enter the hostname you configured in `/usr/local/searxng-docker/.env` in your favourite browser and enjoy your own private searching engine! You will see somethig like that:
 
 ![image1](/assets/img/searxng/searxng1.png)
+
+
