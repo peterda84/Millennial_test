@@ -67,6 +67,7 @@ Then we will see the below output, by default in json format:
                 "Code": 0,
                 "Name": "pending"
             },
+            ...
 ```
 
 ## Install Docker Engine and Docker Compose
@@ -79,6 +80,7 @@ Hit:1 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy InRelease
 Get:2 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy-updates InRelease [114 kB]
 Get:3 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy-backports InRelease [99.8 kB]
 Get:4 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy/universe amd64 Packages [14.1 MB]
+...
 ```
 
 ### How to install `docker` and `docker-compose`
@@ -93,6 +95,7 @@ Update the apt package index and install packages to allow apt to use a reposito
 ubuntu@ip-172-31-91-179:~$ sudo apt install ca-certificates curl gnupg lsb-release
 Reading package lists... Done
 Building dependency tree... Done
+...
 ```
 
 Add Docker’s official GPG key:
@@ -131,6 +134,7 @@ ubuntu@ip-172-31-91-179:~$ sudo apt install docker-ce docker-ce-cli containerd.i
 Reading package lists... Done
 Building dependency tree... Done
 Reading state information... Done
+...
 ```
 
 Verify that Docker Engine is installed correctly by running the `hello-world` image.
@@ -146,6 +150,7 @@ Status: Downloaded newer image for hello-world:latest
 
 Hello from Docker!
 This message shows that your installation appears to be working correctly.
+...
 ```
 
 ### Get searxng-docker
@@ -187,7 +192,7 @@ This is the original `.env` file:
 # LETSENCRYPT_EMAIL=<email>
 ```
 
-Uncomment the last 2 lines according to the instructions in the file. The hostname has to be a domain name in case of a public instance, not a public IP.
+Uncomment the last 2 lines according to the instructions in the file. The hostname must be a domain name in case of a public instance, not a public IP.
 
 ```
 # By default listen on https://localhost
@@ -216,6 +221,7 @@ Pulling caddy (caddy:2-alpine)...
 2-alpine: Pulling from library/caddy
 213ec9aee27d: Pull complete
 fd0c7d01ba8a: Pull complete
+...
 ```
 
 Run SearXNG in the background
