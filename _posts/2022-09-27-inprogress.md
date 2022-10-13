@@ -153,7 +153,7 @@ This message shows that your installation appears to be working correctly.
 ...
 ```
 
-### Get searxng-docker
+## Get and configure searxng-docker
 
 Clone the `git` repo to our machine to `/usr/local` and change the current directory to `searxng-docker`
 
@@ -243,8 +243,11 @@ CONTAINER ID   IMAGE                    COMMAND                  CREATED        
 0576430ce0a6   redis:alpine             "docker-entrypoint.s…"   7 seconds ago   Up 5 seconds   6379/tcp                   redis
 ```
 
-Install the systemd unit to start SearXNG automatically after a reboot
-TO BE FILLED
+## Further configuration
+
+### How to start SearXNG automatically after a reboot
+
+
 
 
 That's all. Enter the hostname you configured in `.env` in your favourite browser. You will see somethig like that:
