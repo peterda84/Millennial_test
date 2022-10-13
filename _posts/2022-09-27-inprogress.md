@@ -300,8 +300,8 @@ Restart=on-failure
 Environment=SEARXNG_DOCKERCOMPOSEFILE=docker-compose.yaml
 
 WorkingDirectory=/usr/local/searxng-docker
-ExecStart=/usr/local/bin/docker-compose -f ${SEARXNG_DOCKERCOMPOSEFILE} up --remove-orphans
-ExecStop=/usr/local/bin/docker-compose -f ${SEARXNG_DOCKERCOMPOSEFILE} down
+ExecStart=/usr/bin/docker-compose -f ${SEARXNG_DOCKERCOMPOSEFILE} up --remove-orphans
+ExecStop=/usr/bin/docker-compose -f ${SEARXNG_DOCKERCOMPOSEFILE} down
 
 [Install]
 WantedBy=multi-user.target
@@ -316,7 +316,7 @@ Created symlink /etc/systemd/system/searxng-docker.service → /usr/local/searxn
 ubuntu@ip-172-31-93-83:/usr/local/searxng-docker$ sudo systemctl start searxng-docker.service
 ```
 
-Check if it is OK
+And check if status is OK
 
 ```console
 ubuntu@ip-172-31-93-83:/usr/local/searxng-docker$ sudo systemctl status searxng-docker.service
