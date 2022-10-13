@@ -245,10 +245,100 @@ CONTAINER ID   IMAGE                    COMMAND                  CREATED        
 
 ## Further configuration
 
-### How to start SearXNG automatically after a reboot
+### How to start SearXNG automatically after a reboot (if you use systemd)
 
+Copy the service template
 
+```console
+ubuntu@ip-172-31-93-83:/usr/local/searxng-docker$ sudo cp searxng-docker.service.template searxng-docker.service
+```
 
+`cat` the system unit file
+
+```console
+ubuntu@ip-172-31-93-83:/usr/local/searxng-docker$ cat searxng-docker.service
+[Unit]
+Description=SearXNG service
+Requires=docker.service
+After=docker.service
+
+[Service]
+Restart=on-failure
+
+Environment=SEARXNG_DOCKERCOMPOSEFILE=docker-compose.yaml
+
+WorkingDirectory=/usr/local/searxng-docker
+ExecStart=/usr/local/bin/docker-compose -f ${SEARXNG_DOCKERCOMPOSEFILE} up --remove-orphans
+ExecStop=/usr/local/bin/docker-compose -f ${SEARXNG_DOCKERCOMPOSEFILE} down
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Our `docker-compose` installation is in `/usr/bin`:
+
+```console
+ubuntu@ip-172-31-93-83:/usr/local/searxng-docker$ which docker-compose
+/usr/bin/docker-compose
+```
+
+So that we have to modify the path for `ExecStart` and `ExecStop`:
+```console
+ubuntu@ip-172-31-93-83:/usr/local/searxng-docker$ sudo nano searxng-docker.service
+```
+
+```console
+ubuntu@ip-172-31-93-83:/usr/local/searxng-docker$ cat searxng-docker.service
+[Unit]
+Description=SearXNG service
+Requires=docker.service
+After=docker.service
+
+[Service]
+Restart=on-failure
+
+Environment=SEARXNG_DOCKERCOMPOSEFILE=docker-compose.yaml
+
+WorkingDirectory=/usr/local/searxng-docker
+ExecStart=/usr/local/bin/docker-compose -f ${SEARXNG_DOCKERCOMPOSEFILE} up --remove-orphans
+ExecStop=/usr/local/bin/docker-compose -f ${SEARXNG_DOCKERCOMPOSEFILE} down
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Install the systemd unit
+
+```console
+ubuntu@ip-172-31-93-83:/usr/local/searxng-docker$ sudo systemctl enable $(pwd)/searxng-docker.service
+Created symlink /etc/systemd/system/multi-user.target.wants/searxng-docker.service → /usr/local/searxng-docker/searxng-docker.service.
+Created symlink /etc/systemd/system/searxng-docker.service → /usr/local/searxng-docker/searxng-docker.service.
+ubuntu@ip-172-31-93-83:/usr/local/searxng-docker$ sudo systemctl start searxng-docker.service
+```
+
+Check if it is OK
+
+```console
+ubuntu@ip-172-31-93-83:/usr/local/searxng-docker$ sudo systemctl status searxng-docker.service
+● searxng-docker.service - SearXNG service
+     Loaded: loaded (/etc/systemd/system/searxng-docker.service; enabled; vendor preset: enabled)
+     Active: active (running) since Thu 2022-10-13 15:13:58 UTC; 8min ago
+   Main PID: 3081 (docker-compose)
+      Tasks: 5 (limit: 1143)
+     Memory: 23.6M
+        CPU: 860ms
+     CGroup: /system.slice/searxng-docker.service
+             └─3081 /usr/bin/python3 /usr/bin/docker-compose -f docker-compose.yaml up --remove-orphans
+
+Oct 13 15:13:58 ip-172-31-93-83 docker-compose[3081]: searxng    | mapped 241344 bytes (235 KB) for 4 cores
+Oct 13 15:13:58 ip-172-31-93-83 docker-compose[3081]: searxng    | *** Operational MODE: threaded ***
+Oct 13 15:13:58 ip-172-31-93-83 docker-compose[3081]: searxng    | added /usr/local/searxng/ to pythonpath.
+Oct 13 15:13:58 ip-172-31-93-83 docker-compose[3081]: searxng    | spawned uWSGI master process (pid: 7)
+Oct 13 15:13:58 ip-172-31-93-83 docker-compose[3081]: searxng    | spawned uWSGI worker 1 (pid: 10, cores: 4)
+Oct 13 15:13:58 ip-172-31-93-83 docker-compose[3081]: searxng    | cache sweeper thread enabled
+Oct 13 15:13:58 ip-172-31-93-83 docker-compose[3081]: searxng    | spawned 1 offload threads for uWSGI worker 1
+...
+```
 
 That's all. Enter the hostname you configured in `.env` in your favourite browser. You will see somethig like that:
 
